@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -9,31 +10,40 @@ class Menu extends StatefulWidget {
 }
 
 class MenuState extends State<Menu> {
+  void GG(int c) {
+    c = c + 1;
+  }
+
   List<List<dynamic>> tusLists = [
     [
-      "https://library.the1.co.th/content/dam/the1/articles/image/2021-08/1H2108002-pic1.jpeg",
+      "https://cf.shopee.co.th/file/9588f34115591f9f501366124f8323e4",
       "ฮาโวเทียหยดน้ำ (Haworthia cooperi)",
-      280
+      580,
+      0
     ],
     [
-      "https://library.the1.co.th/content/dam/the1/articles/image/2021-08/1H2108002-pic2.jpeg",
+      "https://cf.shopee.co.th/file/1c937a3f93fec82b872f05ce6dc74a85",
       "หมวกสังฆราช (Bishop's Cap Cactus)",
-      1000
+      1000,
+      0
     ],
     [
-      "https://library.the1.co.th/content/dam/the1/articles/image/2021-08/1H2108002-pic3.jpeg",
+      "https://cf.shopee.co.th/file/7818c035c7af35f9ff74aa57920f9543",
       "แมมขนนก (Feather Cactus)",
-      450
+      450,
+      0
     ],
     [
-      "https://library.the1.co.th/content/dam/the1/articles/image/2021-08/1H2108002-pic4.jpeg",
+      "https://cf.shopee.co.th/file/c094abe5629f1e5050b79b4c4c749e03",
       "ยิมโนแคคตัส (Moon cactus)",
-      1200
+      1200,
+      0
     ],
     [
-      "https://library.the1.co.th/content/dam/the1/articles/image/2021-08/1H2108002-pic5.jpeg",
+      "https://cf.shopee.co.th/file/c5d25cecd625caa84d826331f4f14e17",
       "แคคตัสหูกระต่าย (Bunny Ear Cactus)",
-      340
+      340,
+      0
     ],
   ];
   @override
@@ -69,11 +79,23 @@ class MenuState extends State<Menu> {
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "${tusLists[index][2]}",
+                              "${tusLists[index][2]} ฿",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 255, 0, 0),
                                   fontSize: 15),
-                            )
+                            ),
+                            RaisedButton(
+                              onPressed: () => {
+                                GG(tusLists[index][3]++)
+                                //do something
+                              },
+                              child: new Text('Click me'),
+                            ),
+                            Text(
+                              "${tusLists[index][3]} Unit",
+                              style:
+                                  TextStyle(color: Colors.blue, fontSize: 15),
+                            ),
                           ],
                         ),
                       ),
